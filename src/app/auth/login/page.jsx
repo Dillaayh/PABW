@@ -111,7 +111,7 @@ const Login = () => {
                 Masuk
               </button>
               <p className="text-center text-sm">
-                Belum punya akun? <Link href="/auth/registrasi" className="text-white font-bold hover:underline">Daftar</Link>
+                Belum punya akun? <Link  className="text-white font-bold hover:underline">Daftar</Link>
               </p>
             </form>
           </div>
