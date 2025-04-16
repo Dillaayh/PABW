@@ -81,7 +81,7 @@ const Login = () => {
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="isi email anda"
+                    placeholder="     isi email anda"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="h-[40px] w-[380px] px-4 text-sm border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -96,7 +96,7 @@ const Login = () => {
                     type={showPassword ? 'text' : 'password'}
                     id="password"
                     name="password"
-                    placeholder="isi password anda"
+                    placeholder="     isi password anda"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="h-[40px] w-[380px] px-4 text-sm border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 pr-10"
