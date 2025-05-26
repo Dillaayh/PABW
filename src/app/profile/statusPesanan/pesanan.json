@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "type": "hotel",
+    "nama": "Platinum Hotel",
+    "checkin": "Rab, 12 Jan 2025 (12:00)",
+    "checkout": "Kam, 13 Jan 2025 (13:00)",
+    "catatan": "Pesan untuk pribadi",
+    "status": "Berhasil",
+    "tanggal": "Sel, 11 Jan 2025",
+    "durasi_malam": 1,
+    "tipe_kamar": "Deluxe Queen",
+    "fasilitas": ["Sarapan Gratis", "1 Queen bed"],
+    "tamu": "2 Tamu/Kamar",
+    "penghuni": "2 Dewasa, 1 Anak-anak",
+    "refund": "Tidak bisa refund",
+    "reschedule": "Tidak bisa reschedule",
+    "nama_pemesan": "Dilla Ayu",
+    "email_pemesan": "dillaayu@gmail.com",
+    "untuk": "Pesanan untuk sendiri",
+    "harga_normal": 1200000,
+    "harga_diskon": 1000000,
+    "jumlah_kasur"  : 1,
+    "dewasa" : 1,
+    "anak" : 1,
+    "sarapan" : "Ya, termasuk"
+  },
+
+  {
+    "id": 2,
+    "type": "pesawat",
+    "nama": "Garuda Indonesia",
+    "kode_bandara_berangkat": "CGK",
+    "berangkat": "12 Feb 2025 ",
+    "jam_berangkat": "10.00",
+    "durasi": "2j 0m",
+    "kode_bandara_tujuan": "DPS",
+    "tiba": "13 Feb 2025",
+    "jam_tiba": "12.00",
+    "status": "Dibatalkan",
+    "tanggal": "Sen, 10 Feb 2025",
+    "kelas": "Ekonomi",
+    "bagasi": "20kg",
+    "no_kursi": "12A",
+    "jenis_makan": "Makan di pesawat",
+    "jenis_penumpang": [
+      {
+        "jenis": "1 dewasa"
+      },
+      {
+        "jenis": "1 anak-anak"
+      }
+    ],
+    "penumpang": [
+      {
+        "nama": "Dilla Ayu Puspitasari",
+        "bagasi": "20kg",
+        "kategori": "Dewasa"
+      },
+      {
+        "nama": "Alipah",
+        "bagasi": "0kg",
+        "kategori": "Anak-anak"
+      }
+    ],
+    "rute_asal": "Jakarta",
+    "rute_tujuan": "Bali",
+    "bandara_asal": "Bandara Internasional Soekarno-Hatta (CGK)",
+    "bandara_tujuan": "Bandara Internasional Ngurah Rai (DPS)",
+    "kode_booking": "GA655-2025-2",
+    "refund": "Tidak bisa refund",
+    "reschedule": "Tidak bisa reschedule",
+    "nama_pemesan": "Dilla Ayu Puspitasari",
+    "email_pemesan": "dillayayu@gmail.com",
+    "untuk": "Pesanan untuk sendiri",
+    "harga_dewasa": 850000,
+    "harga_anak_anak": 650000,
+    "harga_diskon": 72500
+  },
+  {
+    "id": 3,
+    "type": "hotel",
+    "nama": "Grand Aston Yogyakarta",
+    "checkin": "Jum, 14 Mar 2025 (14:00)",
+    "checkout": "Min, 16 Mar 2025 (12:00)",
+    "catatan": "Pesan untuk perjalanan bisnis",
+    "status": "Berhasil",
+    "tanggal": "Kam, 13 Mar 2025",
+    "durasi_malam": 2,
+    "tipe_kamar": "Executive King",
+    "fasilitas": ["WiFi Gratis", "2 King bed", "Kolam Renang"],
+    "tamu": "3 Tamu/Kamar",
+    "penghuni": "3 Dewasa",
+    "refund": "Bisa refund",
+    "reschedule": "Bisa reschedule",
+    "nama_pemesan": "Andi Saputra",
+    "email_pemesan": "andi.saputra@gmail.com",
+    "untuk": "Pesanan untuk sendiri",
+    "harga_normal": 2400000,
+    "harga_diskon": 2100000,
+    "jumlah_kasur": 2,
+    "dewasa": 3,
+    "anak": 0,
+    "sarapan": "Ya, termasuk"
+  },
+  
+  {
+    "id": 4,
+    "type": "pesawat",
+    "nama": "Lion Air",
+    "kode_bandara_berangkat": "SUB",
+    "berangkat": "22 Mar 2025",
+    "jam_berangkat": "07.30",
+    "durasi": "1j 30m",
+    "kode_bandara_tujuan": "DPS",
+    "tiba": "22 Mar 2025",
+    "jam_tiba": "09.00",
+    "status": "Berhasil",
+    "tanggal": "Sel, 20 Mar 2025",
+    "kelas": "Bisnis",
+    "bagasi": "25kg",
+    "no_kursi": "3B",
+    "jenis_makan": "Snack dan Minuman",
+    "jenis_penumpang": [
+      {
+        "jenis": "2 dewasa"
+      }
+    ],
+    "penumpang": [
+      {
+        "nama": "Putri Maulida",
+        "bagasi": "25kg",
+        "kategori": "Dewasa"
+      },
+      {
+        "nama": "Budi Hartanto",
+        "bagasi": "25kg",
+        "kategori": "Dewasa"
+      }
+    ],
+    "rute_asal": "Surabaya",
+    "rute_tujuan": "Bali",
+    "bandara_asal": "Bandara Internasional Juanda (SUB)",
+    "bandara_tujuan": "Bandara Internasional Ngurah Rai (DPS)",
+    "kode_booking": "JT808-2025-4",
+    "refund": "Bisa refund",
+    "reschedule": "Tidak bisa reschedule",
+    "nama_pemesan": "Putri Maulida",
+    "email_pemesan": "putri.maulida@gmail.com",
+    "untuk": "Pesanan untuk orang lain",
+    "harga_dewasa": 500000,
+    "harga_anak_anak": 0,
+    "harga_diskon": 450000
+  },
+
+  {
+    "id": 5,
+    "type": "hotel",
+    "nama": "The Trans Luxury Hotel Bandung",
+    "checkin": "Sab, 5 Apr 2025 (15:00)",
+    "checkout": "Min, 6 Apr 2025 (12:00)",
+    "catatan": "Liburan keluarga",
+    "status": "Dibatalkan",
+    "tanggal": "Kam, 3 Apr 2025",
+    "durasi_malam": 1,
+    "tipe_kamar": "Family Suite",
+    "fasilitas": ["Sarapan Gratis", "2 Queen Bed", "Akses Kolam Anak"],
+    "tamu": "4 Tamu/Kamar",
+    "penghuni": "2 Dewasa, 2 Anak-anak",
+    "refund": "Bisa refund sebagian",
+    "reschedule": "Bisa reschedule",
+    "nama_pemesan": "Rina Wulandari",
+    "email_pemesan": "rina.wulandari@gmail.com",
+    "untuk": "Pesanan untuk sendiri",
+    "harga_normal": 2000000,
+    "harga_diskon": 1800000,
+    "jumlah_kasur": 2,
+    "dewasa": 2,
+    "anak": 2,
+    "sarapan": "Ya, termasuk"
+  }
+]
