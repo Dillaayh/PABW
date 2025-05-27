@@ -22,6 +22,15 @@ const LoginForm = ({ onSubmit }) => {
       return;
     }
 
+    if (!email.includes('@')) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Email Tidak Valid',
+        text: 'Email harus mengandung karakter "@"!',
+      });
+      return;
+    }
+
     try {
       if (onSubmit) await onSubmit(email, password);
       Swal.fire({
@@ -76,18 +85,20 @@ const LoginForm = ({ onSubmit }) => {
             </div>
           </div>
         </div>
-
+      
+        <Link href="/dashboard">
         <button
           type="submit"
           className="bg-white text-black px-6 py-2 font-bold rounded-full hover:bg-[#3E588F]"
         >
           Masuk
         </button>
+        </Link>
       </form>
 
       <p className="text-center text-black text-sm font-regular mt-4">
         Belum punya akun?{" "}
-        <Link href="/register" className="text-black font-regular hover:underline">
+        <Link href="/auth/registrasi" className="text-black font-regular hover:underline">
           Daftar
         </Link>
       </p>

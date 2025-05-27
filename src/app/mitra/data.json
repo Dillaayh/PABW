@@ -1,0 +1,44 @@
+{
+  "kategori": [
+    {
+      "id": 1,
+      "kategori": "Penerbangan",
+      "icon": "FaPlane"
+    },
+    {
+      "id": 2,
+      "kategori": "Hotel",
+      "icon": "FaHotel"
+    }
+  ],
+  "kamarHotel": [
+    {
+      "tipe": "Deluxe Double",
+      "nomor": "A03",
+      "kasur": "Double",
+      "ukuran": 23,
+      "harga": 424565
+    },
+    {
+      "tipe": "Deluxe Twin",
+      "nomor": "A01",
+      "kasur": "TwinBed",
+      "ukuran": 23,
+      "harga": 377882
+    },
+    {
+      "tipe": "Superior Deluxe",
+      "nomor": "A06",
+      "kasur": "Double",
+      "ukuran": 29,
+      "harga": 455687
+    },
+    {
+      "tipe": "Grand Deluxe",
+      "nomor": "A14",
+      "kasur": "Double",
+      "ukuran": 40,
+      "harga": 634639
+    }
+  ]
+}

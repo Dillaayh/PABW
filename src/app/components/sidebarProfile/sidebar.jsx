@@ -26,7 +26,7 @@ export default function SidebarProfile() {
     {
       label: 'Kumpulan Review Kamu',
       icon: <TiStarFullOutline className="text-xl" />,
-      href: '#', // nanti diganti
+      href: '/profile/review',
     },
     {
       label: 'Akun Saya',
@@ -36,13 +36,12 @@ export default function SidebarProfile() {
     {
       label: 'Keluar',
       icon: <FaPowerOff className="text-xl" />,
-      href: '#', // logout logic
+      href: '/',
     },
   ];
 
   return (
     <>
-      {/* Burger Button - hanya muncul kalau sidebar belum terbuka */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
@@ -52,23 +51,23 @@ export default function SidebarProfile() {
         </button>
       )}
 
-      {/* Blur overlay */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 backdrop-blur-sm z-40"
           onClick={() => setIsOpen(false)}
         />
       )}
 
-      {/* Sidebar */}
-      <div
-        className={`
-          fixed top-0 left-0 h-full w-64 bg-white shadow-lg p-6 z-50 transform
-          ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
-          transition-transform duration-300 ease-in-out
-          sm:relative sm:translate-x-0 sm:h-auto sm:w-full sm:max-w-xs sm:shadow-none sm:rounded-2xl sm:p-6 sm:mb-6
-        `}
-      >
+    <div
+      className={`
+        fixed top-0 left-0 h-full w-64 bg-white shadow-lg p-6 z-50 transform
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+        transition-transform duration-300 ease-in-out
+        sm:relative sm:translate-x-0 sm:h-screen sm:w-full sm:max-w-xs sm:shadow-none sm:rounded-l-2xl sm:rounded-r-2xl sm:rounded-b-2xl sm:p-6
+      `}
+    >
+
+
         <h2 className="text-2xl font-semibold mb-4 text-center">Dilla Ayu Puspitasari</h2>
         <hr className="mb-6" />
         <ul className="flex flex-col gap-6">
@@ -78,7 +77,7 @@ export default function SidebarProfile() {
               <li key={index}>
                 <Link
                   href={item.href}
-                  onClick={() => setIsOpen(false)} // sidebar langsung nutup setelah klik
+                  onClick={() => setIsOpen(false)}
                   className={`flex items-center gap-4 px-4 py-3 rounded-full transition text-base ${
                     isActive
                       ? 'bg-[#324C9B] text-white'

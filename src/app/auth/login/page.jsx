@@ -1,7 +1,7 @@
 'use client';
 
 import React from "react";
-import LoginForm from '@/app/components/auth/LoginForm';
+import LoginForm from '../../components/auth/LoginForm';
 
 const LoginPage = () => {
   const handleLogin = async (email, password) => {
