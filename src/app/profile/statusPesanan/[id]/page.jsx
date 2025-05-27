@@ -1,6 +1,6 @@
 "use client";
 
-import SidebarProfile from "@/app/component/sidebarProfile/sidebar";
+import SidebarProfile from "@/app/components/sidebarProfile/sidebar";
 import dataPesanan from "@/app/profile/statusPesanan/pesanan.json";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";

@@ -1,6 +1,6 @@
 'use client';
 
-import SidebarProfile from '@/app/component/sidebarProfile/sidebar';
+import SidebarProfile from '@/app/components/sidebarProfile/sidebar';
 import dataPesanan from '@/app/profile/statusPesanan/pesanan.json';
 import Link from 'next/link';
 import { FaHotel, FaPlaneDeparture } from 'react-icons/fa';
