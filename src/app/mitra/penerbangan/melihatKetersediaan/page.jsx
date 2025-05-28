@@ -108,12 +108,6 @@ export default function MelihatKetersediaan() {
                   <td colSpan="7" className="p-3 text-center text-gray-500">Tidak ada data yang ditemukan.</td>
                 </tr>
               )}
-              {/* Tambahkan baris kosong agar tabel terlihat penuh, minimal 6 baris */}
-              {Array.from({ length: Math.max(0, 6 - filteredData.length) }).map((_, i) => (
-                <tr key={`empty-${i}`} className="h-12 border-t border-gray-200 even:bg-gray-50">
-                  <td colSpan="7"></td>
-                </tr>
-              ))}
             </tbody>
           </table>
         </div>

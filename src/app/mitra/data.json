@@ -17,28 +17,32 @@
       "nomor": "A03",
       "kasur": "Double",
       "ukuran": 23,
-      "harga": 424565
+      "harga": 424565,
+      "deskripsi" : "Kamar ini memiliki luas 23,0 m² dan merupakan kamar bebas rokok, ideal untuk tamu yang menginginkan suasana bersih dan nyaman. Dilengkapi dengan fasilitas utama seperti pendingin ruangan (air conditioning), shower, dan kulkas (refrigerator), kamar ini dirancang untuk memberikan kenyamanan maksimal. Fasilitas standar yang tersedia mencakup area duduk (seating area) serta kamar yang dapat saling terhubung (interconnecting rooms), cocok untuk keluarga atau rombongan. Di dalam kamar juga tersedia pembuat kopi/teh, air mineral kemasan gratis, minibar, dan televisi untuk hiburan. Kamar mandi pribadi dilengkapi dengan perlengkapan mandi (toiletries) dan shower yang bersih, memastikan pengalaman menginap yang menyenangkan dan praktis."
     },
     {
       "tipe": "Deluxe Twin",
       "nomor": "A01",
       "kasur": "TwinBed",
       "ukuran": 23,
-      "harga": 377882
+      "harga": 377882,
+      "deskripsi" : "Kamar ini memiliki luas 23,0 m² dan merupakan kamar bebas rokok, ideal untuk tamu yang menginginkan suasana bersih dan nyaman. Dilengkapi dengan fasilitas utama seperti pendingin ruangan (air conditioning), shower, dan kulkas (refrigerator), kamar ini dirancang untuk memberikan kenyamanan maksimal. Fasilitas standar yang tersedia mencakup area duduk (seating area) serta kamar yang dapat saling terhubung (interconnecting rooms), cocok untuk keluarga atau rombongan. Di dalam kamar juga tersedia pembuat kopi/teh, air mineral kemasan gratis, minibar, dan televisi untuk hiburan. Kamar mandi pribadi dilengkapi dengan perlengkapan mandi (toiletries) dan shower yang bersih, memastikan pengalaman menginap yang menyenangkan dan praktis."
     },
     {
       "tipe": "Superior Deluxe",
       "nomor": "A06",
       "kasur": "Double",
       "ukuran": 29,
-      "harga": 455687
+      "harga": 455687,
+      "deskripsi" : "Kamar ini memiliki luas 23,0 m² dan merupakan kamar bebas rokok, ideal untuk tamu yang menginginkan suasana bersih dan nyaman. Dilengkapi dengan fasilitas utama seperti pendingin ruangan (air conditioning), shower, dan kulkas (refrigerator), kamar ini dirancang untuk memberikan kenyamanan maksimal. Fasilitas standar yang tersedia mencakup area duduk (seating area) serta kamar yang dapat saling terhubung (interconnecting rooms), cocok untuk keluarga atau rombongan. Di dalam kamar juga tersedia pembuat kopi/teh, air mineral kemasan gratis, minibar, dan televisi untuk hiburan. Kamar mandi pribadi dilengkapi dengan perlengkapan mandi (toiletries) dan shower yang bersih, memastikan pengalaman menginap yang menyenangkan dan praktis."
     },
     {
       "tipe": "Grand Deluxe",
       "nomor": "A14",
       "kasur": "Double",
       "ukuran": 40,
-      "harga": 634639
+      "harga": 634639,
+      "deskripsi" : "Kamar ini memiliki luas 23,0 m² dan merupakan kamar bebas rokok, ideal untuk tamu yang menginginkan suasana bersih dan nyaman. Dilengkapi dengan fasilitas utama seperti pendingin ruangan (air conditioning), shower, dan kulkas (refrigerator), kamar ini dirancang untuk memberikan kenyamanan maksimal. Fasilitas standar yang tersedia mencakup area duduk (seating area) serta kamar yang dapat saling terhubung (interconnecting rooms), cocok untuk keluarga atau rombongan. Di dalam kamar juga tersedia pembuat kopi/teh, air mineral kemasan gratis, minibar, dan televisi untuk hiburan. Kamar mandi pribadi dilengkapi dengan perlengkapan mandi (toiletries) dan shower yang bersih, memastikan pengalaman menginap yang menyenangkan dan praktis."
     }
   ]
 }

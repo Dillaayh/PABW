@@ -17,7 +17,7 @@ export default function SidebarPenerbangan() {
 
         <div className="text-center mb-10">
           <div className="w-16 h-16 bg-white rounded-full mx-auto mb-2"></div>
-          <p className="font-semibold">Bandara Hj. Syifa Maulida</p>
+          <p className="font-semibold">Bandara Balikpapan</p>
         </div>
 
         <nav className="space-y-4 text-sm" aria-label="Sidebar menu hotel">

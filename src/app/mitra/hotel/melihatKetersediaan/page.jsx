@@ -6,23 +6,23 @@ import SidebarMitraHotel from '@/app/components/sidebarMitra/hotel/page';
 const dummyData = [
   {
     judul: 'Deluxe Twin City View',
-    imageSrc: '/images/deluxe-twin-city-view.jpeg', // Pastikan gambar ini ada di public/images/
+    imageSrc: '/images/hotel.svg',
     pilihan: [
       {
         nama: 'Deluxe Double',
-        sarapan: false, // Tidak termasuk sarapan
+        sarapan: false, 
         kapasitas: 10
       },
       {
         nama: 'Deluxe Double',
-        sarapan: true, // Termasuk sarapan
+        sarapan: true, 
         kapasitas: 10
       },
     ],
   },
   {
     judul: 'Deluxe Double',
-    imageSrc: '/images/deluxe-double.jpeg', // Pastikan gambar ini ada di public/images/
+    imageSrc: '/images/hotel.svg', 
     pilihan: [
       {
         nama: 'Deluxe Double',
@@ -38,7 +38,7 @@ const dummyData = [
   },
   {
     judul: 'Superior Deluxe',
-    imageSrc: '/images/superior-deluxe.jpeg', // Pastikan gambar ini ada di public/images/
+    imageSrc: '/images/hotel.svg',
     pilihan: [
       {
         nama: 'Superior',
