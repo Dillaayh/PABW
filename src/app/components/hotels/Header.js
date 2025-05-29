@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="flex items-center justify-between px-10 py-6 shadow-sm">
       <div className="flex items-center gap-4">
-        <img src="/img/logo.png" alt="Logo" className="w-14 h-10" />
+        <img src="/images/logo.png" alt="Logo" className="w-14 h-10" />
         <nav className="flex gap-6 text-lg">
           <a href="#" className="hover:underline">
             Beranda

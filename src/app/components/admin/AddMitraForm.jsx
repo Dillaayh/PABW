@@ -12,6 +12,7 @@ export default function AddMitraForm() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [nomorTelepon, setNomorTelepon] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -35,26 +36,26 @@ export default function AddMitraForm() {
 
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="space-y-2">
-          <label className="block text-sm font-medium">Nama Pengguna</label>
+          <label className="block text-sm font-medium">Nama Perusahaan</label>
           <input
             type="text"
             name="nama"
             value={formData.nama}
             onChange={handleChange}
             className="w-full border rounded-[30px] px-3 py-2"
-            placeholder="Masukkan nama pengguna"
+            placeholder="Contoh PT. Geriya"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium">Username</label>
+          <label className="block text-sm font-medium">Nama Mitra</label>
           <input
             type="text"
-            name="username"
-            value={formData.username}
+            name="nama"
+            value={formData.nama}
             onChange={handleChange}
             className="w-full border rounded-[30px] px-3 py-2"
-            placeholder="Masukkan Username"
+            placeholder="Contoh Garuda Indonesia"
           />
         </div>
 
@@ -68,6 +69,17 @@ export default function AddMitraForm() {
             className="w-full border rounded-[30px] px-3 py-2"
             placeholder="Masukkan Email Anda"
           />
+        </div>
+
+         <div className="flex flex-col">
+          <label htmlFor="name" className="mb-1 text-black font-medium">No.Telepon</label>
+          <input
+            type="tel"
+            id="nomorTelepon"
+            value={nomorTelepon}
+            onChange={(e) => setNomorTelepon(e.target.value)}
+            placeholder="Isi No.Telepon"
+            className="w-full bg-white text-black border px-4 py-2 rounded-full"/>
         </div>
 
         <div className="space-y-2 relative">

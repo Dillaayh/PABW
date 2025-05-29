@@ -30,7 +30,7 @@ export default function SearchForm({ onSearch }) {
     <div className="relative px-10 py-20 overflow-hidden">
       <div
         className="absolute inset-1 bg-no-repeat bg-contain bg-top"
-        style={{ backgroundImage: "url(img/bg.png)" }}
+        style={{ backgroundImage: "url(images/bg.png)" }}
       ></div>
 
       <div className="relative z-10 max-w-3xl mx-auto bg-white rounded-xl shadow-md p-8">

@@ -35,6 +35,7 @@ export default function AddUserForm() {
   };
 
  const [showPassword, setShowPassword] = useState(false);
+ const [nomorTelepon, setNomorTelepon] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +64,7 @@ export default function AddUserForm() {
 
       <form onSubmit={handleSubmit} className="space-y-8 w-full">
         <div className="space-y-2">
-          <label className="block text-sm font-medium">Nama Pengguna</label>
+          <label className="block text-sm font-medium">Nama</label>
           <input
             type="text"
             name="nama"
@@ -86,6 +87,17 @@ export default function AddUserForm() {
           />
         </div>
 
+         <div className="flex flex-col">
+          <label htmlFor="name" className="mb-1 text-black font-medium">No.Telepon</label>
+          <input
+            type="tel"
+            id="nomorTelepon"
+            value={nomorTelepon}
+            onChange={(e) => setNomorTelepon(e.target.value)}
+            placeholder="Isi No.Telepon"
+            className="w-full bg-white text-black border px-4 py-2 rounded-full"/>
+        </div>
+
         <div className="space-y-2 relative">
           <label className="block text-sm font-medium">Password</label>
           <input
@@ -103,34 +115,6 @@ export default function AddUserForm() {
           >
             {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
           </button>
-        </div>
-
-        <div className="space-y-2 flex flex-col w-full relative top-[-20px]" ref={dropdownRef}>
-          <label className="block text-sm font-medium">Role</label>
-          <div
-            className="w-full border rounded-[30px] px-3 py-2.5 flex items-center justify-between cursor-pointer"
-            onClick={toggleDropdown}
-          >
-            <div className="pl-[10px] text-sm text-black">{formData.role || 'Pilih Role'}</div>
-            <MdOutlineKeyboardArrowDown size={20} className="text-black w-[35px]" />
-          </div>
-
-          {dropdownOpen && (
-            <div className="absolute mt-[50px] w-[90%] max-w-[385px] bg-[#fbfbfc] border border-gray-300 rounded-[20px] shadow-lg z-50">
-              <div
-                className="cursor-pointer px-4 py-2 hover:bg-gray-200 rounded-t-[20px]"
-                onClick={() => handleSelectRole('Mitra')}
-              >
-                Mitra
-              </div>
-              <div
-                className="cursor-pointer px-4 py-2 hover:bg-gray-200 rounded-b-[20px]"
-                onClick={() => handleSelectRole('Pengguna')}
-              >
-                Pengguna
-              </div>
-            </div>
-          )}
         </div>
 
         <div className="flex justify-end">
