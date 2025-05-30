@@ -2,8 +2,13 @@ import { FaPlaneDeparture, FaPlaneArrival, FaCalendarAlt, FaWheelchair } from 'r
 
 export default function FlightSearchForm() {
   return (
+<<<<<<< HEAD
     <div className="flex items-center justify-center min-h-screen">
       <div className="bg-white/20 backdrop-blur-sm p-6 rounded-xl w-full max-w-4xl shadow-lg">
+=======
+    
+      <div className="bg-white/20 backdrop-blur-md p-6 rounded-xl w-full max-w-4xl shadow-lg">
+>>>>>>> 5393b4b (feat(ui): desain tampilan awal dashboard dengan Tailwind CSS)
         <h2 className="text-white text-lg md:text-xl font-semibold mb-6 text-center">
           Silakan tetapkan lokasi dan tanggal yang Anda inginkan!
         </h2>
@@ -42,7 +47,11 @@ export default function FlightSearchForm() {
             Cari
           </button>
         </div>
+<<<<<<< HEAD
       </div>
+=======
+     
+>>>>>>> 5393b4b (feat(ui): desain tampilan awal dashboard dengan Tailwind CSS)
     </div>
   );
 }
