@@ -29,38 +29,38 @@ export default function AddMitraForm() {
 
   return (
     <div className="flex flex-col p-6 rounded-lg w-full max-w-3xl mx-auto">
-      <h2 className="text-[25px] font-bold mb-1">Menambahkan Mitra</h2>
+      <h2 className="text-[25px] text-[#3E588F] font-bold mb-1">Menambahkan Mitra</h2>
       <p className="text-[12px] text-[#F36614] mb-4">
         Untuk menambahkan mitra, tolong perhatikan detail data yang akan diisi telah sesuai dan benar dengan data mitra.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="space-y-2">
-          <label className="block text-sm font-medium">Nama Perusahaan</label>
+          <label className="block text-[#3E588F] text-sm font-bold">Nama Perusahaan</label>
           <input
             type="text"
             name="nama"
             value={formData.nama}
             onChange={handleChange}
-            className="w-full border rounded-[30px] px-3 py-2"
+            className="w-full text-[#3E588F] border rounded-[30px] px-3 py-2"
             placeholder="Contoh PT. Geriya"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium">Nama Mitra</label>
+          <label className="block text-[#3E588F] text-sm font-bold">Nama Mitra</label>
           <input
             type="text"
             name="nama"
             value={formData.nama}
             onChange={handleChange}
-            className="w-full border rounded-[30px] px-3 py-2"
+            className="w-full text-[#3E588F] border rounded-[30px] px-3 py-2"
             placeholder="Contoh Garuda Indonesia"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium">Email</label>
+          <label className="block text-[#3E588F] text-sm font-bold">Email</label>
           <input
             type="email"
             name="email"
@@ -72,18 +72,18 @@ export default function AddMitraForm() {
         </div>
 
          <div className="flex flex-col">
-          <label htmlFor="name" className="mb-1 text-black font-medium">No.Telepon</label>
+          <label htmlFor="name" className="mb-1 text-[#3E588F] font-bold">No.Telepon</label>
           <input
             type="tel"
             id="nomorTelepon"
             value={nomorTelepon}
             onChange={(e) => setNomorTelepon(e.target.value)}
             placeholder="Isi No.Telepon"
-            className="w-full bg-white text-black border px-4 py-2 rounded-full"/>
+            className="w-full bg-white text-[#3E588F] border px-4 py-2 rounded-full"/>
         </div>
 
         <div className="space-y-2 relative">
-          <label className="block text-sm font-medium">Password</label>
+          <label className="block text-sm text-[#3E588F] font-bold">Password</label>
           <input
             type={showPassword ? 'text' : 'password'}
             name="password"
@@ -95,7 +95,7 @@ export default function AddMitraForm() {
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-7 top-[40px] text-[15px]"
+            className="absolute right-7 top-[40px] text-[15px] text-gray-600"
           >
             {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
           </button>

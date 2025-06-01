@@ -46,7 +46,7 @@ const LoginForm = ({ onSubmit }) => {
 
       // Redirect setelah SweetAlert selesai
       setTimeout(() => {
-        router.push('/dashboard');
+        router.push('/pages/landingpage');
       }, 1600);
 
     } catch (err) {
@@ -105,7 +105,7 @@ const LoginForm = ({ onSubmit }) => {
 
       <p className="text-center text-black text-sm font-regular mt-4">
         Belum punya akun?{" "}
-        <Link href="/auth/registrasi" className="text-black font-regular hover:underline">
+        <Link href="/pages/auth/registrasi" className="text-black font-regular hover:underline">
           Daftar
         </Link>
       </p>

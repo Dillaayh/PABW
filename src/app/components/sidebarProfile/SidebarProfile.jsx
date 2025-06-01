@@ -16,22 +16,22 @@ export default function SidebarProfile() {
     {
       label: 'Saldo Saya',
       icon: <MdOutlineAccountBalanceWallet className="text-xl" />,
-      href: '/profile/saldo',
+      href: '/pages/profile/saldo',
     },
     {
       label: 'Status Pesanan',
       icon: <LuNotebookPen className="text-xl" />,
-      href: '/profile/statusPesanan',
+      href: '/pages/profile/statusPesanan',
     },
     {
       label: 'Kumpulan Review Kamu',
       icon: <TiStarFullOutline className="text-xl" />,
-      href: '/profile/review',
+      href: '/pages/profile/review',
     },
     {
       label: 'Akun Saya',
       icon: <FaCog className="text-xl" />,
-      href: '/profile/editProfile',
+      href: '/pages/profile/editProfile',
     },
     {
       label: 'Keluar',

@@ -1,0 +1,32 @@
+{
+  "saldo": [
+    {
+      "id": 1,
+      "username": "user123",
+      "nama": "Dilla Ayu",
+      "email": "dilla@example.com",
+      "saldo": 150000
+    },
+    {
+      "id": 2,
+      "username": "user456",
+      "nama": "Alifah Aisyah",
+      "email": "alifah@example.com",
+      "saldo": 200000
+    },
+    {
+      "id": 3,
+      "username": "user789",
+      "nama": "Syifa Maulida",
+      "email": "syifa@example.com",
+      "saldo": 175000
+    },
+    {
+      "id": 4,
+      "username": "user147",
+      "nama": "Nabila Chairunnisa",
+      "email": "Nabsgmail",
+      "saldo": 185000
+    }
+  ]
+}
