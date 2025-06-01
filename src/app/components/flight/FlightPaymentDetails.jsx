@@ -11,24 +11,48 @@ export default function FlightPaymentDetails({
   harga,
 }) {
   return (
-    <div className="border rounded-2xl shadow border-[#3E588F] p-4 space-y-2 font-[Montserrat] text-[#203562]">
-      <h2 className="text-lg font-semibold text-[#1E3A8A]">Ringkasan Penumpang</h2>
-      {passengers.length === 0 ? (
-        <div>Belum ada penumpang yang diisi.</div>
-      ) : (
-        passengers.map((p, i) => (
-          <div key={i}>
-            Penumpang {i + 1}: {p.name || "(Belum diisi)"}
+    <div className="mt-10 font-[Montserrat] space-y-4">
+      {/* Detail Penerbangan */}
+      <div className="border border-[#3E588F] rounded-2xl shadow">
+        <div className="bg-[#3E588F] text-white px-4 py-2 rounded-t-2xl">
+          <h2 className="text-lg font-semibold">Detail Penerbangan</h2>
+        </div>
+      </div>
+
+      {/* Keberangkatan */}
+      <div className="border border-[#3E588F] rounded-2xl shadow p-4">
+        <h3 className="text-md font-semibold text-[#203562] mb-4">Keberangkatan</h3>
+        <div className="flex justify-between text-sm text-[#203562]">
+          <div>
+            <p className="font-medium">{from}</p>
+            <p>{new Date(departure).toLocaleString("id-ID")}</p>
           </div>
-        ))
-      )}
-      <div className="pt-2 text-sm space-y-1">
-        <p><strong>Dari:</strong> {from}</p>
-        <p><strong>Ke:</strong> {to}</p>
-        <p><strong>Keberangkatan:</strong> {departure}</p>
-        <p><strong>Kedatangan:</strong> {arrival}</p>
-        <p><strong>Maskapai:</strong> {maskapai}</p>
-        <p><strong>Harga:</strong> Rp {harga}</p>
+          <div className="text-right">
+            <p className="font-medium">{to}</p>
+            <p>{new Date(arrival).toLocaleString("id-ID")}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 pt-4">
+          <img src="/images/logo.svg" alt="Maskapai" className="w-6 h-6" />
+          <span className="text-[#203562] text-sm font-medium">{maskapai}</span>
+        </div>
+      </div>
+
+      {/* Detail Pembayaran */}
+      <div className="border border-[#3E588F] rounded-2xl shadow p-4 space-y-4">
+        <h3 className="text-md font-semibold text-[#203562]">Detail Pembayaran</h3>
+        <div className="flex justify-between items-center">
+          <label className="font-medium text-[#203562]">Metode Pembayaran:</label>
+          <select className="p-2 border border-[#3E588F] rounded text-[#203562]">
+            <option>GeBookPay</option>
+          </select>
+        </div>
+        <div className="flex justify-between items-center">
+          <label className="text-[#203562] text-sm font-medium">Total</label>
+          <p className="text-sm font-bold text-red-600">
+            Rp {Number(harga).toLocaleString("id-ID")}
+          </p>
+        </div>
       </div>
     </div>
   );
