@@ -12,10 +12,12 @@ const LoginForm = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validasi client-side
     if (!email || !password) {
       Swal.fire({
         icon: 'warning',
@@ -34,27 +36,37 @@ const LoginForm = ({ onSubmit }) => {
       return;
     }
 
+    setIsLoading(true);
+
     try {
-      if (onSubmit) await onSubmit(email, password);
+      // Panggil fungsi onSubmit yang melakukan fetching
+      const response = await onSubmit(email, password);
+      
+      // Jika sampai sini berarti login berhasil
       Swal.fire({
         icon: 'success',
         title: 'Login Berhasil',
-        text: 'Anda berhasil masuk.',
+        text: `Selamat datang, ${response.user.nama}!`,
         showConfirmButton: false,
         timer: 1500
       });
 
       // Redirect setelah SweetAlert selesai
       setTimeout(() => {
-        router.push('/dashboard');
+        router.push('/pages/landingpage');
       }, 1600);
 
-    } catch (err) {
+    } catch (error) {
+      // Tangani error dari backend
+      console.error('Login error:', error);
+      
       Swal.fire({
         icon: 'error',
         title: 'Login Gagal',
-        text: err.message || 'Terjadi kesalahan.',
+        text: error.message || 'Terjadi kesalahan saat login.',
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -70,7 +82,8 @@ const LoginForm = ({ onSubmit }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full border font-regular bg-white px-4 py-2 rounded-full"
-            autoComplete="off"
+            autoComplete="email"
+            disabled={isLoading}
           />
         </div>
 
@@ -84,7 +97,8 @@ const LoginForm = ({ onSubmit }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full border font-regular bg-white px-4 py-2 rounded-full pr-10"
-              autoComplete="off"
+              autoComplete="current-password"
+              disabled={isLoading}
             />
             <div
               className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
@@ -97,15 +111,20 @@ const LoginForm = ({ onSubmit }) => {
 
         <button
           type="submit"
-          className="bg-white text-black px-6 py-2 font-bold rounded-full hover:bg-[#3E588F]"
+          disabled={isLoading}
+          className={`px-6 py-2 font-bold rounded-full transition-colors ${
+            isLoading 
+              ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+              : 'bg-white text-black hover:bg-[#3E588F] hover:text-white'
+          }`}
         >
-          Masuk
+          {isLoading ? 'Memproses...' : 'Masuk'}
         </button>
       </form>
 
       <p className="text-center text-black text-sm font-regular mt-4">
         Belum punya akun?{" "}
-        <Link href="/auth/registrasi" className="text-black font-regular hover:underline">
+        <Link href="/pages/auth/registrasi" className="text-black font-regular hover:underline">
           Daftar
         </Link>
       </p>

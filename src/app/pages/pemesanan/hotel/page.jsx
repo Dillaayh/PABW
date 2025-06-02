@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Swal from "sweetalert2";
-import HotelForm from "@/app/components/hotel/HotelForm";
-import HotelHeader from "@/app/components/hotel/HotelHeader";
+import HotelForm from "../../../components/hotel/HotelForm";
+import HotelHeader from "../../..//components/hotel/HotelHeader";
 
 export default function HotelBooking() {
   const searchParams = useSearchParams();

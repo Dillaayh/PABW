@@ -15,7 +15,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="bg-blue-800 text-white text-center py-4 text-sm">
+        <div className="bg-[#3E588F] text-white text-center py-4 text-sm">
           Copyright © 2025 GeBookin. All rights reserved
         </div>
       </footer>

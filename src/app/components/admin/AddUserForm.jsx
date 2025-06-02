@@ -7,10 +7,9 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 export default function AddUserForm() {
   const [formData, setFormData] = useState({
     nama: '',
-    username: '',
+    NoTelepon: '',
     email: '',
-    password: '',
-    role: '',
+    password: ''
   });
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -57,26 +56,26 @@ export default function AddUserForm() {
 
   return (
     <div className="flex flex-col items-start text-left p-6 rounded-lg w-full max-w-3xl mx-auto">
-      <h2 className="text-[25px] font-bold mb-1">Menambahkan Pengguna</h2>
+      <h2 className="text-[25px] text-[#3E588F] font-bold mb-1">Menambahkan Pengguna</h2>
       <p className="text-[12px] text-[#F36614] mb-4 ">
         Untuk menambahkan pengguna, tolong perhatikan detail data yang akan diisi telah sesuai dan benar dengan data pengguna.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-8 w-full">
         <div className="space-y-2">
-          <label className="block text-sm font-medium">Nama</label>
+          <label className="block text-[#3E588F] text-sm font-bold">Nama</label>
           <input
             type="text"
             name="nama"
             value={formData.nama}
             onChange={handleChange}
-            className="w-full border rounded-[30px] px-3 py-2"
+            className="w-full text-black border rounded-[30px] px-3 py-2"
             placeholder="Masukkan nama pengguna"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium">Email</label>
+          <label className="block text-[#3E588F] text-sm font-bold">Email</label>
           <input
             type="email"
             name="email"
@@ -87,19 +86,8 @@ export default function AddUserForm() {
           />
         </div>
 
-         <div className="flex flex-col">
-          <label htmlFor="name" className="mb-1 text-black font-medium">No.Telepon</label>
-          <input
-            type="tel"
-            id="nomorTelepon"
-            value={nomorTelepon}
-            onChange={(e) => setNomorTelepon(e.target.value)}
-            placeholder="Isi No.Telepon"
-            className="w-full bg-white text-black border px-4 py-2 rounded-full"/>
-        </div>
-
         <div className="space-y-2 relative">
-          <label className="block text-sm font-medium">Password</label>
+          <label className="block text-[#3E588F] text-sm font-bold">Password</label>
           <input
             type={showPassword ? 'text' : 'password'}
             name="password"
@@ -111,10 +99,21 @@ export default function AddUserForm() {
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-7 top-[40px] text-[15px]"
+            className="absolute right-7 top-[40px] text-[15px] text-gray-600"
           >
             {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
           </button>
+        </div>
+
+         <div className="flex flex-col">
+          <label htmlFor="name" className="mb-1 text-[#3E588F] font-bold">No.Telepon</label>
+          <input
+            type="tel"
+            id="nomorTelepon"
+            value={nomorTelepon}
+            onChange={(e) => setNomorTelepon(e.target.value)}
+            placeholder="Isi No.Telepon"
+            className="w-full bg-white text-black border px-4 py-2 rounded-full"/>
         </div>
 
         <div className="flex justify-end">

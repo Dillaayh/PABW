@@ -1,0 +1,167 @@
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import dataJson from '../../../mitra/data.json';
+import SidebarMitraHotel from '../../../../components/sidebarMitra/hotel/page';
+
+const statusDummy = ['Check Out', 'Check In', 'Dibatalkan', 'Menunggu'];
+const warnaStatus = {
+  'Check Out': 'bg-[#2E4374] text-white',
+  'Check In': 'bg-[#5588C3] text-white',
+  'Dibatalkan': 'bg-[#F32424] text-white',
+  'Menunggu': 'bg-[#FFD93D] text-black',
+};
+
+export default function MelihatStatus() {
+  const [kamar, setKamar] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(''); // State baru untuk pencarian
+  const [showModal, setShowModal] = useState(false);
+  const [selectedKamarDetail, setSelectedKamarDetail] = useState(null);
+  const [originalKamarData, setOriginalKamarData] = useState([]); // State untuk menyimpan data asli sebelum filter
+
+  useEffect(() => {
+    // Dummy data untuk Check In, Check Out, Harga, dan Date Time
+    const dummyCheckInOut = ['12.00', '14.00', '10.00', '16.00'];
+    const dummyHarga = ['Rp 424.565', 'Rp 350.000', 'Rp 500.000', 'Rp 280.000'];
+    const dummyDateTime = ['17/04/2025 11:58', '18/04/2025 10:30', '16/04/2025 09:00', '19/04/2025 15:00'];
+
+    const kamarWithStatus = dataJson.kamarHotel.map((item, index) => ({
+      ...item,
+      identitas: ['Alifah Nur Aisyah', 'Dilla Ayu', 'Desti Nur Irawati', 'Syifa Maulida'][index % 4] || 'Tamu',
+      status: statusDummy[index % statusDummy.length],
+      checkIn: dummyCheckInOut[index % dummyCheckInOut.length],
+      checkOut: dummyCheckInOut[(index + 1) % dummyCheckInOut.length],
+      harga: dummyHarga[index % dummyHarga.length],
+      dateTime: dummyDateTime[index % dummyDateTime.length],
+    }));
+    setOriginalKamarData(kamarWithStatus); // Simpan data asli
+    setKamar(kamarWithStatus); // Inisialisasi data yang akan ditampilkan
+  }, []);
+
+  // Effect untuk melakukan filter saat searchTerm berubah
+  useEffect(() => {
+    if (searchTerm === '') {
+      setKamar(originalKamarData); // Jika pencarian kosong, tampilkan semua data asli
+      return;
+    }
+
+    const filteredKamar = originalKamarData.filter((item) =>
+      item.tipe.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.nomor.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.identitas.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.status.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setKamar(filteredKamar);
+  }, [searchTerm, originalKamarData]); // Dependensi: searchTerm dan originalKamarData
+
+  const handleDetailClick = (kamarItem) => {
+    setSelectedKamarDetail(kamarItem);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedKamarDetail(null);
+  };
+
+  return (
+    <div className="flex min-h-screen font-montserrat text-[#3E588F]">
+      <SidebarMitraHotel active="status" />
+
+      <main className="flex-1 p-10 bg-white font-montserrat">
+        <h2 className="text-center text-xl font-bold text-[#3D5895] bg-[#8FAADC] py-3 rounded-xl mb-6 shadow-sm font-montserrat">
+          Status Ketersediaan Kamar Hotel
+        </h2>
+
+        {/* Input pencarian dengan onChange handler */}
+        <input
+          type="text"
+          placeholder="Pencarian"
+          className="w-1/3 mb-4 px-4 py-2 border rounded-full focus:outline-none font-montserrat"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
+        <div className="overflow-x-auto bg-white rounded-xl shadow-md border border-gray-200 font-montserrat">
+          <table className="w-full text-sm font-montserrat">
+            <thead>
+              <tr className="bg-[#3E588F] text-white rounded-xl font-montserrat">
+                <th className="p-3 text-left w-[5%] rounded-tl-xl font-montserrat">No</th>
+                <th className="px-4 py-2 text-left font-montserrat">Tipe Ruangan</th>
+                <th className="px-4 py-2 text-left font-montserrat">Nomor Kamar</th>
+                <th className="px-4 py-2 text-left font-montserrat">Identitas Pemesan</th>
+                <th className="px-4 py-2 text-left font-montserrat">Status</th>
+                <th className="px-4 py-2 text-left rounded-rl-xl font-montserrat"> </th>
+              </tr>
+            </thead>
+            <tbody>
+              {kamar.length > 0 ? ( // Tambahkan kondisi jika tidak ada data
+                kamar.map((item, index) => (
+                  <tr key={index} className="border-t border-gray-200 text-[#1E3269] even:bg-gray-50 hover:bg-blue-50 transition-colors duration-150 font-montserrat">
+                    <td className="px-4 py-3 rounded-l-xl font-montserrat">{index + 1}</td>
+                    <td className="px-4 py-3 font-montserrat">{item.tipe}</td>
+                    <td className="px-4 py-3 font-montserrat">{item.nomor}</td>
+                    <td className="px-4 py-3 font-montserrat">{item.identitas}</td>
+                    <td className="px-4 py-3 font-montserrat">
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${warnaStatus[item.status]} font-montserrat`}>
+                        {item.status}
+                      </span>
+                    </td>
+                    <td
+                      className="px-4 py-3 text-blue-500 font-semibold hover:underline cursor-pointer rounded-r-xl font-montserrat"
+                      onClick={() => handleDetailClick(item)}
+                    >
+                      Detail
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6" className="text-center py-4 text-gray-500 font-montserrat">
+                    Tidak ada data yang ditemukan.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+      {/* Modal untuk detail pemesanan */}
+      {showModal && selectedKamarDetail && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 font-montserrat">
+          <div className="relative bg-white p-6 rounded-xl shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[450px] mx-auto font-montserrat">
+            {/* Tombol Close */}
+            <button
+              onClick={closeModal}
+              className="absolute top-3 right-3 text-red-500 hover:text-red-700 text-3xl font-bold leading-none font-montserrat"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <h3 className="text-xl font-semibold mb-6 text-center text-[#3E588F] font-montserrat">
+              Kartu Detail Identitas Pemesan Hotel
+            </h3>
+            <div className="space-y-4 font-montserrat">
+              {[
+                ["Nama Lengkap", selectedKamarDetail.identitas],
+                ["Check In", selectedKamarDetail.checkIn],
+                ["Check Out", selectedKamarDetail.checkOut],
+                ["Status", selectedKamarDetail.status],
+                ["Harga", selectedKamarDetail.harga],
+                ["Date Time", selectedKamarDetail.dateTime],
+              ].map(([label, value]) => (
+                <div key={label} className="flex items-center font-montserrat">
+                  <label className="w-2/5 text-[#3E588F] text-sm font-semibold font-montserrat">{label}</label>
+                  <div className="flex-1 px-4 py-2 bg-[#C6DDF4] text-[#3E588F] font-normal rounded-full font-montserrat">
+                    {value || "-"}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

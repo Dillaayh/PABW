@@ -1,0 +1,58 @@
+{
+  "penerbangan": [
+    {
+      "id": 1,
+      "tipe_pesawat": "Airbus",
+      "tanggal": "12/04/2025",
+      "kode_penerbangan": "GN 001",
+      "bandara_keberangkatan": "Bandara Sepinggan",
+      "bandara_tujuan": "Bandara Bali",
+
+      "maskapai_penerbangan": "Garuda Indonesia",
+      "tipe_pesawat_penerbangan": "Airbus",
+      "kode_penerbangan_detail": "CN001",
+      "tanggal_penerbangan": "12/04/2025",
+      "bandara_asal": "Bandar Udara International Sultan Aji Muhammad Sulaiman Sepinggan",
+      "bandara_tujuan_detail": "Bandara International Gusti Ngurah Rai",
+      "waktu_keberangkatan": "09.40",
+      "waktu_tiba": "12.35",
+      "harga_penerbangan": "Rp 1.340.000",
+      "jumlah_penumpang_pesawat": 360,
+      "jumlah_kursi_penerbangan": 360,
+      "jumlah_penumpang_penerbangan": 360,
+      "kelas_penerbangan": {
+        "ekonomi": 100,
+        "ekonomi_premium": 100,
+        "bisnis": 100,
+        "first_class": 60
+      }
+    },
+    {
+      "id": 2,
+      "tipe_pesawat": "Boeing 737",
+      "tanggal": "20/05/2025",
+      "kode_penerbangan": "JT 580",
+      "bandara_keberangkatan": "Bandara Sepinggan",
+      "bandara_tujuan": "Bandara Soekarno-Hatta",
+
+      "maskapai_penerbangan": "Lion Air",
+      "tipe_pesawat_penerbangan": "Boeing 737-900ER",
+      "kode_penerbangan_detail": "JT580",
+      "tanggal_penerbangan": "20/05/2025",
+      "bandara_asal": "Bandar Udara International Sultan Aji Muhammad Sulaiman Sepinggan",
+      "bandara_tujuan_detail": "Bandara International Soekarno-Hatta",
+      "waktu_keberangkatan": "14.00",
+      "waktu_tiba": "15.45",
+      "harga_penerbangan": "Rp 980.000",
+      "jumlah_penumpang_pesawat": 215,
+      "jumlah_kursi_penerbangan": 215,
+      "jumlah_penumpang_penerbangan": 200,
+      "kelas_penerbangan": {
+        "ekonomi": 180,
+        "ekonomi_premium": 0,
+        "bisnis": 35,
+        "first_class": 0
+      }
+    }
+  ]
+}
