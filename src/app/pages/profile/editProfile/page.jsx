@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { MdCalendarToday } from 'react-icons/md';
-import SidebarProfile from '../../components/sidebarProfile/SidebarProfile';
+import SidebarProfile from '../../../components/sidebarProfile/SidebarProfile';
 import { HiOutlineMail } from 'react-icons/hi';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { IoEye, IoEyeOff } from 'react-icons/io5';

@@ -61,7 +61,7 @@ export default function SidebarProfile() {
       isLink: true,
     },
     {
-      label: 'Kumpulan Review Kamu',
+      label: 'Kumpulan Review',
       icon: <TiStarFullOutline className="text-xl" />,
       href: '/pages/profile/review',
       isLink: true,

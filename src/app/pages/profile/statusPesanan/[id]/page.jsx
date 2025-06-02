@@ -1,9 +1,9 @@
 "use client";
 
 import SidebarProfile from "../../../../components/sidebarProfile/SidebarProfile";
-import dataPesanan from "../pesanan.json";
+import dataPesanan from "../../statusPesanan/pesanan.json";
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Import useEffect
 import {
   FaChair,
   FaCheckCircle,
@@ -23,6 +23,10 @@ export default function DetailPesanan() {
   const parsedId = parseInt(id);
   const detail = dataPesanan.find((item) => item.id === parsedId);
   const [showDetailHarga, setShowDetailHarga] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [showCancellationModal, setShowCancellationModal] = useState(false);
+  // NEW STATE: For the success message modal
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   if (isNaN(parsedId) || !detail) {
     return (
@@ -32,6 +36,38 @@ export default function DetailPesanan() {
 
   const toggleDetailHarga = () => {
     setShowDetailHarga(!showDetailHarga);
+  };
+
+  const handleConfirmOrder = () => {
+    console.log(`Order ${detail.id} for ${detail.nama} confirmed!`);
+    setShowConfirmationModal(false); // Close the confirmation modal
+
+    // Show the success modal
+    setShowSuccessModal(true);
+
+    // Redirect to statusPesanan after 2 seconds
+    setTimeout(() => {
+      router.push('/pages/profile/statusPesanan');
+    }, 5000);
+  };
+
+  const handleCancelConfirmationModal = () => {
+    setShowConfirmationModal(false); 
+    
+  };
+
+  const handleCancelOrder = () => {
+    console.log(`Order ${detail.id} for ${detail.nama} canceled!`);
+    setShowConfirmationModal(false); // Close the confirmation modal
+
+    // Redirect to statusPesanan after 2 seconds
+    setTimeout(() => {
+      router.push('/pages/profile/statusPesanan');
+    }, 2000);
+  };
+
+  const handleCloseCancellationModal = () => {
+    setShowCancellationModal(false);
   };
 
   return (
@@ -102,16 +138,14 @@ export default function DetailPesanan() {
                     <p className="font-semibold">Penumpang:</p>
                     <ul className="list-disc list-inside text-sm">
                       {["Dewasa", "Anak-anak"].map((kategori, index) => {
-                        // Menghitung jumlah penumpang berdasarkan kategori
                         const jumlah = detail.penumpang.filter(
                           (p) => p.kategori === kategori
                         ).length;
                         return jumlah > 0 ? (
                           <li key={index}>
                             {jumlah} {kategori}{" "}
-                            {/* Menampilkan jumlah kategori */}
                           </li>
-                        ) : null; // Jika tidak ada penumpang di kategori ini, jangan ditampilkan
+                        ) : null;
                       })}
                     </ul>
                   </div>
@@ -184,29 +218,19 @@ export default function DetailPesanan() {
                   </p>
                   <div className="flex items-center gap-2">
                     {detail.untuk_sendiri ? (
-                      <>
-                        <FaRegCircle className="text-green-600" />
-                        <p>Pesanan untuk sendiri</p>
-                      </>
+                      <FaCheckCircle className="text-green-600" />
                     ) : (
-                      <>
-                        <FaCheckCircle className="text-gray-600" />
-                        <p>Pesanan untuk sendiri</p>
-                      </>
+                      <FaRegCircle className="text-gray-600" />
                     )}
+                    <p>Pesanan untuk sendiri</p>
                   </div>
                   <div className="flex items-center gap-2">
                     {!detail.untuk_sendiri ? (
-                      <>
-                        <FaRegCircle className="text-gray-600" />
-                        <p>Pesanan untuk orang</p>
-                      </>
+                      <FaCheckCircle className="text-green-600" />
                     ) : (
-                      <>
-                        <FaRegCircle className="text-gray-600" />
-                        <p>Pesanan untuk orang</p>
-                      </>
+                      <FaRegCircle className="text-gray-600" />
                     )}
+                    <p>Pesanan untuk orang</p>
                   </div>
                 </div>
               </div>
@@ -216,88 +240,193 @@ export default function DetailPesanan() {
             <div className="space-y-2">
               <h4
                 className="font-semibold flex justify-between items-center cursor-pointer"
-                onClick={
-                  detail.type === "pesawat" ? toggleDetailHarga : undefined
-                }
+                onClick={detail.type === 'pesawat' ? toggleDetailHarga : undefined}
               >
                 Rincian Harga
-                {detail.type === "pesawat" &&
+                {detail.type === 'pesawat' &&
                   (showDetailHarga ? <FaChevronUp /> : <FaChevronDown />)}
               </h4>
 
-              {detail.type === "pesawat" && (
+              {detail.type === 'pesawat' && (
                 <>
                   {/* Harga total collapsible */}
                   <div className="bg-gray-100 rounded-xl p-4 shadow flex justify-between text-sm font-bold text-red-600">
                     <span className="text-black">Harga Total</span>
-                    <span>
-                      Rp{" "}
-                      {(
-                        detail.harga_anak_anak +
-                        detail.harga_dewasa +
-                        detail.harga_diskon
-                      ).toLocaleString()}
-                    </span>
+                    <span>Rp {(
+                      detail.harga_anak_anak + detail.harga_dewasa + detail.harga_diskon
+                    ).toLocaleString()}</span>
                   </div>
 
                   {/* Rincian jika dibuka */}
                   {showDetailHarga && (
                     <div className="bg-gray-100 rounded-xl p-4 shadow space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span>{detail.nama_dewasa || "Dewasa"}</span>
+                        <span>{detail.nama} (Dewasa) (1x)</span>
                         <span>Rp {detail.harga_dewasa.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>{detail.nama_anak || "Anak-anak"}</span>
-                        <span>
-                          Rp {detail.harga_anak_anak.toLocaleString()}
-                        </span>
+                        <span>(Anak-anak) (1x)</span>
+                        <span>Rp {detail.harga_anak_anak.toLocaleString()}</span>
                       </div>
-                      <div className="flex justify-between text-green-700 font-medium">
-                        <span>Diskon</span>
-                        <span>- Rp {detail.harga_diskon.toLocaleString()}</span>
+                      <div className="flex justify-between">
+                        <span>Biaya Kursi</span>
+                        <span>Rp 0</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Asuransi Perjalanan (1x)</span>
+                        <span>Rp {detail.harga_diskon}</span>
+                      </div>
+                      <hr />
+                      <div className="flex justify-between font-semibold">
+                        <span>Total</span>
+                        <span>Rp {(detail.harga_dewasa + detail.harga_anak_anak + detail.harga_diskon).toLocaleString()}</span>
                       </div>
                     </div>
                   )}
                 </>
               )}
 
-              {detail.type === "hotel" && (
+              {detail.type === 'hotel' && (
                 <div className="bg-gray-100 rounded-xl p-4 shadow space-y-2 text-sm">
                   <div className="font-semibold text-black">Harga Total</div>
 
                   <div className="flex justify-end line-through text-gray-500">
-                    <span>
-                      Rp {detail.harga_normal?.toLocaleString() ?? "0"}
-                    </span>
+                    <span>Rp {detail.harga_normal.toLocaleString()}</span>
                   </div>
 
                   <div className="flex justify-end font-bold text-[#F23131]">
                     <span>Rp {detail.harga_diskon.toLocaleString()}</span>
                   </div>
 
-                  <div className="text-xs text-[#000000]/30 text-right">
-                    Termasuk pajak dan biaya pemulihan
-                  </div>
+                  <div className="text-xs text-[#000000]/30 text-right">Termasuk pajak dan biaya pemulihan</div>
                 </div>
               )}
-            </div>
 
-            {/* Tombol Cetak */}
+            </div>
+            <p className="text-[#F23131] text-sm">Pembatalan pesanan hanya bisa dilakukan H-2 pesanan. Lebih dari itu tidak dapat dilakukan pembatalan.</p>
+
+            {/* Tombol Aksi */}
             <div className="text-right">
-              <button
-                className="bg-[#324C9B] text-white px-4 py-2 rounded-full text-sm shadow hover:bg-[#273e7d]"
-                aria-label="Cetak Tiket"
-                onClick={() =>
-                  router.push(`/pages/profile/statusPesanan/${id}/voucher`)
-                }
-              >
-                Cetak Tiket
-              </button>
+              {detail.status === 'Pending' ? (
+                <>
+                  <button
+                    className="bg-[#F23131] text-white px-4 py-2 rounded-full text-sm shadow hover:bg-[#7d2727]"
+                    aria-label="Batalkan Pesanan"
+                    onClick={() => setShowCancellationModal(true)}
+                  >
+                    Batalkan
+                  </button>
+                  <button
+                    className="bg-[#324C9B] text-white px-4 py-2 rounded-full text-sm shadow hover:bg-[#273e7d] ml-2"
+                    aria-label="Konfirmasi Pesanan"
+                    onClick={() => setShowConfirmationModal(true)}
+                  >
+                    Konfirmasi
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    className="bg-[#F23131] text-white px-4 py-2 rounded-full text-sm shadow hover:bg-[#7d2727] mr-2"
+                    aria-label="Batalkan Pesanan"
+                    onClick={() => setShowCancellationModal(true)}
+                  >
+                    Batalkan
+                  </button>
+                  <button
+                    className="bg-[#324C9B] text-white px-4 py-2 rounded-full text-sm shadow hover:bg-[#273e7d]"
+                    aria-label="Cetak Tiket"
+                    onClick={() =>
+                      router.push(`/pages/profile/statusPesanan/${id}/voucher`)
+                    }
+                  >
+                    Cetak Tiket
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Confirmation Modal (Existing) */}
+      {showConfirmationModal && (
+        <div className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl p-6 shadow-lg text-center max-w-sm mx-auto">
+            <h3 className="text-lg mb-4 text-[#324C9B]">
+              Apakah anda yakin melakukan konfirmasi pemesanan {detail.type === 'hotel' ? 'hotel' : 'pesanan'}{' '}
+              <span className="font-bold">{detail.nama}</span>
+            </h3>
+            <div className="text-red-500 text-5xl mb-6">
+              <FaExclamationTriangle className="mx-auto" />
+            </div>
+            <div className="flex justify-center gap-4">
+              <button
+                className="bg-gray-200 text-gray-800 px-6 py-2 rounded-full shadow hover:bg-gray-300 transition-colors"
+                onClick={handleCancelConfirmationModal}
+              >
+                Batal
+              </button>
+              <button
+                className="bg-[#324C9B] text-white px-6 py-2 rounded-full shadow hover:bg-[#273e7d] transition-colors"
+                onClick={handleConfirmOrder}
+              >
+                Iya
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* NEW: Cancellation Modal */}
+      {showCancellationModal && (
+        <div className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl p-6 shadow-lg text-center max-w-sm mx-auto">
+            <h3 className="text-lg mb-4 text-[#324C9B]">
+              Apakah anda yakin melakukan pembatalan pesanan{' '}
+              <span className="font-bold">
+                {detail.type === 'hotel' ? detail.nama : 'Pesawat'}
+              </span>
+              {' '}?
+            </h3>
+            <div className="text-red-500 text-5xl mb-6">
+              <FaExclamationTriangle className="mx-auto" />
+            </div>
+            <p className="text-sm text-red-500 mb-6">
+              Apabila anda mengkonfirmasi pembatalan, maka anda tidak dapat mengubah
+              keputusan kembali pada sebelumnya. Mohon periksa terlebih dahulu!
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                className="bg-gray-200 text-gray-800 px-6 py-2 rounded-full shadow hover:bg-gray-300 transition-colors"
+                onClick={handleCloseCancellationModal}
+              >
+                Batal
+              </button>
+              <button
+                className="bg-[#324C9B] text-white px-6 py-2 rounded-full shadow hover:bg-[#273e7d] transition-colors"
+                onClick={handleCancelOrder}
+              >
+                Iya
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* NEW: Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl p-6 shadow-lg text-center max-w-sm mx-auto">
+            <h3 className="text-lg mb-4 text-[#324C9B]">
+              Pemesanan kamar hotel
+              Anda telah berhasil. Silakan
+              lihat ulang status pesanan
+              Anda dan cetak e-ticket
+            </h3>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
