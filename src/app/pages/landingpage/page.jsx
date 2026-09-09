@@ -40,7 +40,7 @@ export default function HeroSection() {
 
         <div className="flex-grow" />
 
-        <div className="z-10 flex justify-center mb-4">
+        <div className="z-10 flex justify-center mb-16">
           <ToggleButton activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
       </div>

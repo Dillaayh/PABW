@@ -66,15 +66,15 @@ export default function Navbar() {
 
       {/* Tombol Masuk & Daftar */}
       <div className="flex border rounded-[20px] text-[15px] items-center gap-2">
-        <Link href="/pages/auth/registrasi">
+        <Link href="/pages/auth/login">
           <button
             className={`px-4 py-1 rounded-full font-semibold ${
-              pathname === '/pages/auth/registrasi'
+              pathname === '/pages/auth/login'
                 ? 'bg-white text-black'
                 : 'text-white hover:bg-white hover:text-black transition'
             }`}
           >
-            Daftar
+            Masuk
           </button>
         </Link>
 
